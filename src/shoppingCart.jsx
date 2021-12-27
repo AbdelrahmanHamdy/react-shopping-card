@@ -1,0 +1,21 @@
+import React from 'react';
+import Product from './product';
+
+class ShoppingCart extends React.Component {
+    state = {
+        products: [
+            { id: 1, name: 'Burger', count: 2 },
+            { id: 2, name: 'frise', count: 1 },
+            { id: 3, name: 'cola', count: 3 }
+        ],
+    };
+    render() {
+        return (<React.Fragment>
+            <h1>Shopping Cart</h1>
+            {this.state.products.map((product) => (<Product key={product.id} product={product}>
+            </Product>))}
+        </React.Fragment>);
+    }
+}
+
+export default ShoppingCart;
