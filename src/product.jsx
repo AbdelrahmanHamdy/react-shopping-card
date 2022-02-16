@@ -26,7 +26,7 @@ class Product extends React.Component {
                 <div className="col">
                 <span className={this.getClasses()}>{this.state.count}</span>
                 <button onClick={() => this.incrementHandeler(1)} className="btn btn-primary btn-sm">+</button>
-                <span>
+                <span onClick={() => this.props.onDelete(this.props.product)}>
                     <i className="fas fa-trash m-2"></i>
                 </span>
                 </div>

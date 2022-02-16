@@ -9,10 +9,21 @@ class ShoppingCart extends React.Component {
             { id: 3, name: 'cola', count: 3 }
         ],
     };
+
+    handelDelete = (product) => {
+        const products = this.state.products.filter((p) => p.id !== product.id);
+        this.setState({products});
+    }
+
+    handelReset = () => {
+        console.log("reset");
+    }
+
     render() {
         return (<React.Fragment>
             <h1>Shopping Cart</h1>
-            {this.state.products.map((product) => (<Product key={product.id} product={product}>
+            <button onClick={this.handelReset} className="btn btn-secondary m-2 btn-sm">Reset</button>
+            {this.state.products.map((product) => (<Product key={product.id} onDelete={this.handelDelete} product={product}>
             </Product>))}
         </React.Fragment>);
     }
